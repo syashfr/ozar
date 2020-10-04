@@ -4,10 +4,10 @@ from django.http import HttpResponse
 from django.views.generic import TemplateView, ListView
 
 
-class marketplace_homepage(TemplateView):
+class MarketplaceHomepage(TemplateView):
     template_name = 'marketplace_homepage.html'
 
-class marketplace_search_result(ListView):
+class MarketplaceSearchResult(ListView):
     template_name = 'search_results.html'
     def get_queryset(self): # new
         query = self.request.GET.get('q')
