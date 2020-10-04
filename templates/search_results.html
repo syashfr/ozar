@@ -1,0 +1,9 @@
+<h1>Search Results</h1>
+
+<ul>
+  {% for service in object_list %}
+    <li>
+      {{ service.name }}, {{ service.price }}
+    </li>
+  {% endfor %}
+</ul>

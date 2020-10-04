@@ -1,7 +1,8 @@
 from django.urls import path
 
-from . import views
+from .views import marketplace_homepage, marketplace_search_result
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', marketplace_homepage.as_view(), name='marketplace'),
+    path('search/', marketplace_search_result.as_view(), name='search_results')
 ]
