@@ -1,9 +1,11 @@
 <h1>Search Results</h1>
-
 <ul>
   {% for service in object_list %}
     <li>
       {{ service.name }}, {{ service.price }}
     </li>
+    <div class="card" style='width:100%; height:300px;'>
+      <img src="/media/{{ service.main_image }}" style="width:30%;" class="card-img-top" alt="{{ service.name }}">
+    </div>
   {% endfor %}
 </ul>
