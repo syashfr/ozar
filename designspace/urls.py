@@ -1,8 +1,9 @@
 from django.urls import path
-from . import views
 from django.urls import include
+from .views import DesignSpaceHomepage, LaunchWorkSpace
+
 
 urlpatterns = [
-    path('', views.home_page, name='designspace'),
-    path('kicad/',views.create_kicad_workspace, name='kicad'),
+    path('', DesignSpaceHomepage.as_view(), name='designspace'),
+    path('workspace/',LaunchWorkSpace.as_view(), name='workspace'),
 ]
