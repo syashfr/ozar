@@ -11,19 +11,6 @@ from rest_framework.decorators import api_view, authentication_classes, permissi
 class DesignSpaceHomepage(TemplateView):
     template_name = 'designspace_homepage.html'
 
-
 class LaunchWorkSpace(TemplateView):
     template_name = 'search_results.html'
 
-# def home_page(TemplateView):    
-#    return HttpResponse("Welcome to the design space")
-
-# @api_view(['GET'])
-# @authentication_classes([SessionAuthentication, BasicAuthentication])
-# @permission_classes([IsAuthenticated])
-# def create_kicad_workspace(request, format=None):
-#     content = {
-#         'user': request.user,  # `django.contrib.auth.User` instance.
-#         'auth': request.auth,  # None
-#                 }
-#     return Response(content)
