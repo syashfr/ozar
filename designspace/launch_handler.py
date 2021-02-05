@@ -1,5 +1,8 @@
+from az.cli import az
 from avionix import ChartBuilder, ChartDependency, ChartInfo
 
+def connect_aks():
+     az("aks get-credentials --resource-group ozar-d-rg --name ozar-aks-d")
 
 def launch_kicad(release_name, namespace):
     builder = ChartBuilder(

@@ -305,8 +305,8 @@ dependencies:
     - django==3.1.1
     - sqlparse==0.3.1
     - djangorestframework
-    - az.cli
-    - kubernetes
-    - avionix 
+    - az.cli==0.4
+    - kubernetes==12.0.1
+    - avionix==0.4.4
 prefix: C:\Users\Yash\anaconda3
 

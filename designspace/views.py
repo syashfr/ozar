@@ -1,5 +1,4 @@
 import json
-from az.cli import az
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic import TemplateView
@@ -20,7 +19,7 @@ class LaunchWorkSpace(TemplateView):
                 Expected behavior
                  connection to be established on app deployment. user namespace created when on boarded"""
         if(flag==0):
-            az("aks get-credentials --resource-group ozar-d-rg --name ozar-aks-d") 
+            connect_aks()
             flag=1
         if(request.GET['launch button']=='kicad'):   
             namespace = str(request.user)
