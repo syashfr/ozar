@@ -1,5 +1,7 @@
-<form action="{% url 'workspace' %}" method="get">
+<form action="{% url 'workspace' %}" method="GET">
     {% csrf_token %}
      <p> Welcome to the Design Space </p>
-     <input type="submit" name = 'kicad' value="Launch Kicad">
+     <p> Select your workspace </p>
+     <input type="submit" name = 'launch button' value="kicad">
+     <input type="submit" name = 'launch button' value="freecad">
 </form>
