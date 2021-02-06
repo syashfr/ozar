@@ -1,6 +1,0 @@
-dependencies:
-- name: kicad
-  repository: https://syashfr.github.io/kicad/
-  version: 0.1.0
-digest: sha256:2d9cfc5706cf5789328cefeb84f7aed78ed742d1d2aef51c9f77147c39477d0b
-generated: "2021-02-06T18:19:26.86133+01:00"

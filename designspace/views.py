@@ -12,31 +12,24 @@ class LaunchWorkSpace(TemplateView):
     template_name = 'launch_results.html'
 
     def get(self, request):
-        flag=0
-        """Connect to aks only once
-               Current behavior:
-                 using flags for onetime connection, user namespaces created manually
-                Expected behavior
-                 connection to be established on app deployment. user namespace created when on boarded"""
-        if(flag==0):
-            connect_aks()
-            flag=1
-        if(request.GET['launch button']=='kicad'):   
+        if(request.GET['launch button']=='kicad'):  
             namespace = str(request.user)
             release_name = "kicad-"+str(request.user)
-            #helm install in users AKS namespace
-            launch_kicad(release_name=release_name, namespace=request.user)
-
-            """Connecting to workspace
+            #helm install kicad in users AKS namespace
+            launch_kicad(release_name=release_name, namespace=request.user, action="install")
+            
+        elif(request.GET['launch button']=='freecad'):
+            namespace = str(request.user)
+            release_name = "freecad-"+str(request.user)
+            #helm install freecad in users AKS namespace
+            launch_freecad(release_name=release_name, namespace=request.user, action="install")
+            
+        """Access to workspace
                     current behavior
                         get ingress addrs from k8, log onto addr/kicad/
 
                     expected behavior
                         redirect to workspace: hostname/userid/kicad. No hostaname as of now"""
-
-        elif(request.GET['launch button']=='freecad'):
-            print("##########the request is: freecad")
-            print(request.user)
         return render(request, self.template_name)
     
 

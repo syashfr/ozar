@@ -1,26 +1,49 @@
-from az.cli import az
 from avionix import ChartBuilder, ChartDependency, ChartInfo
 
-def connect_aks():
-     az("aks get-credentials --resource-group ozar-d-rg --name ozar-aks-d")
+def launch_kicad(release_name, namespace, action):
+    if(action == "add"):
+        builder = ChartBuilder(
+                ChartInfo(
+                    api_version="v2",
+                    name=release_name,
+                    version="0.1.0",
+                    app_version="1.0.0",
+                    dependencies=[
+                        ChartDependency(
+                            "kicad",
+                            "0.1.0",
+                            "https://syashfr.github.io/kicad/",
+                            "kicad-stable",
+                        )
+                    ],
+                ),
+                [],
+            )
 
-def launch_kicad(release_name, namespace):
-    builder = ChartBuilder(
-            ChartInfo(
-                api_version="v2",
-                name=release_name,
-                version="0.1.0",
-                app_version="1.0.0",
-                dependencies=[
-                    ChartDependency(
-                        "kicad",
-                        "0.1.0",
-                        "https://syashfr.github.io/kicad/",
-                        "stable",
-                    )
-                ],
-            ),
-            [],
-        )
+    elif(action=='install'):
+        builder.install_chart({"dependency-update": None, "namespace": namespace})
 
-    builder.install_chart({"dependency-update": None, "namespace": namespace})
+
+def launch_freecad(release_name, namespace, action):
+    if(action == "add"):
+        builder = ChartBuilder(
+                ChartInfo(
+                    api_version="v2",
+                    name=release_name,
+                    version="0.1.0",
+                    app_version="1.0.0",
+                    dependencies=[
+                        ChartDependency(
+                            "freecad",
+                            "0.1.0",
+                            "https://syashfr.github.io/freecad/",
+                            "freecad-stable",
+                        )
+                    ],
+                ),
+                [],
+            )
+    elif(action=='install'):
+        builder.install_chart({"dependency-update": None, "namespace": namespace})
+
+        
