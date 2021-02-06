@@ -1,5 +1,5 @@
 """
-WSGI config for ozar project.
+WSGI config for ozar-designspace project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ozar.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ozar-designspace.settings')
 
 application = get_wsgi_application()

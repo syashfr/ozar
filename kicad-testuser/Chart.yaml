@@ -1,0 +1,8 @@
+apiVersion: v2
+appVersion: 1.0.0
+dependencies:
+- name: kicad
+  repository: https://syashfr.github.io/kicad/
+  version: 0.1.0
+name: kicad-testuser
+version: 0.1.0
