@@ -9,7 +9,7 @@
     
     cd ozar-designspace  
 
-    conda create --name <mylocalenv> --file conda_win.yaml
+    conda create --name <mylocalenv> --file conda_win.yml
 
     conda activate <mylocalenv>
 
