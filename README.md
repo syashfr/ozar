@@ -9,7 +9,7 @@
     
     cd ozar-designspace  
 
-    conda create --name <mylocalenv> --file conda_win.yml
+    conda env create --name <mylocalenv> --file conda_win.yml
 
     conda activate <mylocalenv>
 
@@ -17,4 +17,4 @@
     python manage.py runserver 
  
 
-Ensure kubernetes cluster with the name ozards-d-aks is deployed and user namespace is created before making requests.
+Ensure kubernetes cluster with the name ozards-d-aks is deployed, ingress controller is deployed and user namespace is created before making requests.
