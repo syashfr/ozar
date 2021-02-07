@@ -7,9 +7,9 @@ class DesignspaceConfig(AppConfig):
     def ready(self):
         """ Initialisation tasks
         """
-        # IMP: AKS cluster with the name: ozar-d-ds must be deployed
+        # IMP: AKS cluster with the name: ozards-d-aks must be deployed
         # Establish one time connection with AKS
-        aks_connect("ozar-d-rg", "ozar-d-ds")
+        aks_connect("ozar-d-rg", "ozards-d-aks")
 
         # IMP: helm must be installed on the application environment (to be containerised in future)
         # Add kicad and freecad helm repos
