@@ -12,17 +12,14 @@ class LaunchWorkSpace(TemplateView):
     template_name = 'launch_results.html'
 
     def get(self, request):
-        if(request.GET['launch button']=='kicad'):  
-            namespace = str(request.user)
-            release_name = "kicad-"+str(request.user)
+        namespace = str(request.user)
+        if(request.GET['launch button']=='kicad'):
             #helm install kicad in users AKS namespace
-            launch_kicad(release_name=release_name, namespace=request.user)
+            launch_workspace(name="kicad", namespace=namespace)
             
         elif(request.GET['launch button']=='freecad'):
-            namespace = str(request.user)
-            release_name = "freecad-"+str(request.user)
             #helm install freecad in users AKS namespace
-            launch_freecad(release_name=release_name, namespace=request.user)
+            launch_workspace(name="freecad", namespace=namespace)
             
         """Access to workspace
                     current behavior

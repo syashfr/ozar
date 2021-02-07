@@ -1,46 +1,29 @@
-from avionix import ChartBuilder, ChartDependency, ChartInfo
+import subprocess
+from az.cli import az
 
-def launch_kicad(release_name, namespace):
-    builder = ChartBuilder(
-            ChartInfo(
-                api_version="v2",
-                name=release_name,
-                version="0.1.0",
-                app_version="1.0.0",
-                dependencies=[
-                    ChartDependency(
-                        "kicad",
-                        "0.1.0",
-                        "https://syashfr.github.io/kicad/",
-                        "kicad-stable",
-                    )
-                ],
-            ),
-            [],
-        )
+def aks_connect(rg, cluster):
+    """ Connects to AKS cluster. No auth as of now
 
-    builder.install_chart({"dependency-update": None, "namespace": namespace})
+    Args:
+        rg (string): name of the resource group
+        cluster (string): name of the AKS cluster
+    """
+    az("aks get-credentials --resource-group {} --name {}".format(rg, cluster))
 
 
-def launch_freecad(release_name, namespace):
-    builder = ChartBuilder(
-            ChartInfo(
-                api_version="v2",
-                name=release_name,
-                version="0.1.0",
-                app_version="1.0.0",
-                dependencies=[
-                    ChartDependency(
-                        "freecad",
-                        "0.1.0",
-                        "https://syashfr.github.io/freecad/",
-                        "freecad-stable",
-                    )
-                ],
-            ),
-            [],
-        )
+def helm_repo_add(name):
+    """ Add helm repo to the attached k8 cluster
 
-    builder.install_chart({"dependency-update": None, "namespace": namespace})
+    Args:
+        name (string): name of workspace: kicad/freecad
+    """
+    subprocess.call(["helm", "repo", "add", name+"-stable","https://syashfr.github.io/"+name])
+    
+def launch_workspace(name, namespace):
+    """ Install helm charts
 
-        
+    Args:
+        name (string): name of workspace: kicad/freecad
+        namespace (string): corresponds to users namespace
+    """
+    subprocess.call(["helm", "install", name+"-release", "{}-stable/{}".format(name,name), "-n", namespace])

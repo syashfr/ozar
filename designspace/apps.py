@@ -1,9 +1,17 @@
-from az.cli import az
 from django.apps import AppConfig
-
+from .launch_handler import aks_connect, helm_repo_add
 
 class DesignspaceConfig(AppConfig):
     name = 'designspace'
-    #IMP: AKS cluster with the name: ozar-d-designspace must be deployed
-    #establish one time connection with AKS
-    az("aks get-credentials --resource-group ozar-d-rg --name ozar-d-designspace")
+
+    def ready(self):
+        """ Initialisation tasks
+        """
+        # IMP: AKS cluster with the name: ozar-d-ds must be deployed
+        # Establish one time connection with AKS
+        aks_connect("ozar-d-rg", "ozar-d-ds")
+
+        # IMP: helm must be installed on the application environment (to be containerised in future)
+        # Add kicad and freecad helm repos
+        helm_repo_add("kicad")
+        helm_repo_add("freecad")
