@@ -24,8 +24,6 @@
     <meta name="msapplication-config" content="{% static '/resources/favicons/browserconfig.xml' %}">
     <meta name="theme-color" content="#ffffff">
 
-
-
 </head>
 <body>
     <header>
@@ -42,52 +40,38 @@
         </nav>
         <div class="hero-text-box">
             <h1>
-                Goodbye Installing Heavy Softwares.<br>
-                Hello Cloud Computing.
+               Your On-demand designspace.<br>
             </h1>
         </div>
     </header>
     <section class="section-features js--section-features" id="features">
         <div class="row">
-            <h2>Get Rid of Installing Heavy Software.</h2>
-            <p class="long-copy">
-                Your on demand design space.
-            </p>
+            <h2>Enabling the community of makers to design, share and create</h2>
         </div>
+        <p class="long-copy">
+            Create a free on-demand KiCAD [PCB Design] or FreeCAD[CAD Design] design space
+        </p>
         <div class="row js--wp-1">
             <div class="col span-1-of-4 box">
                 <!--<i class="ion-ios-infinite-outline icon-big"></i>-->
                 <img src="{% static 'resources/img/remoteWorkspace.jfif' %}" alt="create work" class="logo createWorkspace">
-                <h3 style="text-align:center">create your workspace</h3>
-                <p>
-                    Never waste time again! We really mean that.Create PCB designs hassel free not worring about computer specification.
-                </p>
+                <h3 style="text-align:center">No setup</h3>
+                
             </div>
             <div class="col span-1-of-4 box">
                 <!--<i class="ion-ios-stopwatch-outline icon-big"></i>-->
                 <img src="{% static 'resources/img/saveWork.jfif' %}" alt="save work" class="logo">
-                <h3 style="text-align:center">save your work remotely</h3>
-                <p>
-                    Computer Space getting fulled? We got you cover! Save your projects to cloud. Without worrying of space and fear of deletion.
-                </p>
+                <h3 style="text-align:center"> Work remotely.</h3>
             </div>
             <div class="col span-1-of-4 box">
                 <!--  <i class="ion-ios-nutrition-outline icon-big"></i> -->
                 <img src="{% static 'resources/img/collaborate.jpg' %}" alt="collaborate" class="logo collaborate">
-
-                <h3 style="text-align:center">Collaborate With team</h3>
-                <p>
-                    Working Remotely on local computer makes difficult to work in teams we went through it 😞 that so we developed our platform for collaboration friendly 😁.
-                </p>
+                <h3 style="text-align:center">Collaborate</h3>
             </div>
             <div class="col span-1-of-4 box">
                 <!--     <i class="ion-ios-cart-outline icon-big"></i> -->
                 <img src="{% static 'resources/img/contribute.png' %}" alt="contribute" class="logo contribute">
-                <h3>Contribute To Open Source</h3>
-                <p>
-                    “The best way to find yourself is to lose yourself in the service of others.” – Mahatma Gandhi<br />
-                    You can contribute your designs in order to help other peers😊.
-                </p>
+                <h3>Create an Impact </h3>
             </div>
         </div>
     </section>
@@ -102,7 +86,7 @@
             <div class="col span-1-of-2 steps-box">
                 <div class="works-step">
                     <div>1</div>
-                    <p>Choose the subscription plan that best fits your needs and sign up today.</p>
+                    <p>Sign Up</p>
                 </div>
                 <div class="works-step">
                     <div>2</div>
@@ -110,15 +94,12 @@
                 </div>
                 <div class="works-step">
                     <div>3</div>
-                    <p>Saev your project. See you the next time!</p>
+                    <p>Start Designing</p>
                 </div>
-
-                <a href="#" class="btn-app"><img src="{% static 'resources/img/download-app.svg' %}" alt="App Store Button"></a>
-                <a href="#" class="btn-app"><img src="{% static 'resources/img/download-app-android.png' %}" alt="Play Store Button"></a>
             </div>
         </div>
     </section>
-    <section class="section-form">
+    {% comment %} <section class="section-form">
         <div class="row">
             <h2>We're happy to hear from you</h2>
         </div>
@@ -178,8 +159,8 @@
                     </div>
                 </div>
             </form>
-        </div>
-    </section>
+        </div> 
+    </section> {% endcomment %}
     <footer>
         <div class="row">
             <div class="col span-1-of-2">
