@@ -1,38 +1,72 @@
-{% extends "base.html" %}
+{% load static %}
 
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}Login{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/css/login_modal.css' %}">
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form method="post" action="{% url 'login' %}">
+                <h1>Create Account</h1>
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
+                <span>or use your email for registration</span>
+                <input type="text" placeholder="Name" />
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <a href="#" class="button">Sign Up</a>
+            </form>
+        </div>
+
+        <div class="form-container sign-in-container">
+
+            <form id="SingInForm" method="post" action="{% url 'login' %}">
+                <h1>Sign in</h1>
+                {% csrf_token %}
+                <input type="text" placeholder="UserName" name="username" />
+                <input type="password" placeholder="Password" name="password" />
+                <a href="#">Forgot your password?</a>
+                <a href="#" class="button" onclick="document.getElementById('SingInForm').submit()">Sign In</a>
+                <p id="notMatch" style="visibility:hidden">Your username and password didn't match. Please try again.</p>
+
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="open-modal" class="modal-window">
+        <div>
+            <a href="#modal-close" title="Close" class="modal-close">close &times;</a>
+            <div class="loader">Loading...</div>
+        </div>
+    </div>
+
+    {% if form.errors %}
+    <script>
+        document.getElementById("notMatch").style.visibility = "visible";
+    </script>
     {% endif %}
-{% endif %}
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
 
-<input type="submit" value="login">
-<input type="hidden" name="next" value="{{ next }}">
-</form>
 
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+    <script src="{% static 'resources/js/login-form.js' %}"></script>
 
-{% endblock %}
+</body>
+
+</html>

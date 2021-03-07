@@ -16,5 +16,3 @@
 ## 3. Run App
     python manage.py runserver 
  
-
-Ensure kubernetes cluster with the name ozards-d-aks is deployed, ingress controller is deployed and user namespace is created before making requests.

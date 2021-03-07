@@ -1,22 +1,200 @@
+﻿{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="style.css">
     <title>{% block title %}Ozar design space{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <meta name="description" content="Web Based PCB Designing">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/normalize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/grid.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/ionicons.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'resources/css/queries.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendors/css/animate.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/resources/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static '/resources/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static '/resources/favicons/favicon-16x16.png">
+    <link rel="manifest" href="{% static '/resources/favicons/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static '/resources/favicons/safari-pinned-tab.svg' %}" color="#5bbad5">
+    <link rel="shortcut icon" href="{% static '/resources/favicons/favicon.ico' %}">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="{% static '/resources/favicons/browserconfig.xml' %}">
+    <meta name="theme-color" content="#ffffff">
+
 </head>
-
 <body>
-    <div id="sidebar">
-        {% block sidebar %}
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/blog/">Blog</a></li>
-        </ul>
-        {% endblock %}
-    </div>
+    <header>
+        <nav>
+            <div class="row">
+                <img src="{% static 'resources/img/logo.jpg' %}" alt="Omnifood logo" class="logo">
+                <ul class="main-nav js--main-nav">
+                    <li><a href="">Home</a></li>
+                    <li><a href="http://127.0.0.1:8000/login/">Login</a></li>
+                </ul>
+                <a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>
+            </div>
+        </nav>
+        <div class="hero-text-box">
+            <h1>
+               Your On-demand designspace.<br>
+            </h1>
+        </div>
+    </header>
+    <section class="section-features js--section-features" id="features">
+        <div class="row">
+            <h2>Enabling the community of makers to design, share and create</h2>
+        </div>
+        <p class="long-copy">
+            Create a free on-demand KiCAD [PCB Design] or FreeCAD[CAD Design] design space
+        </p>
+        <div class="row js--wp-1">
+            <div class="col span-1-of-4 box">
+                <!--<i class="ion-ios-infinite-outline icon-big"></i>-->
+                <img src="{% static 'resources/img/remoteWorkspace.jfif' %}" alt="create work" class="logo createWorkspace">
+                <h3 style="text-align:center">No setup</h3>
+                
+            </div>
+            <div class="col span-1-of-4 box">
+                <!--<i class="ion-ios-stopwatch-outline icon-big"></i>-->
+                <img src="{% static 'resources/img/saveWork.jfif' %}" alt="save work" class="logo">
+                <h3 style="text-align:center"> Work remotely.</h3>
+            </div>
+            <div class="col span-1-of-4 box">
+                <!--  <i class="ion-ios-nutrition-outline icon-big"></i> -->
+                <img src="{% static 'resources/img/collaborate.jpg' %}" alt="collaborate" class="logo collaborate">
+                <h3 style="text-align:center">Collaborate</h3>
+            </div>
+            <div class="col span-1-of-4 box">
+                <!--     <i class="ion-ios-cart-outline icon-big"></i> -->
+                <img src="{% static 'resources/img/contribute.png' %}" alt="contribute" class="logo contribute">
+                <h3>Create an Impact </h3>
+            </div>
+        </div>
+    </section>
+    <section class="section-steps" id="works">
+        <div class="row">
+            <h2>Get Started</h2>
+        </div>
+        <div class="row">
+            <div class="col span-1-of-2 steps-box">
+                <img src="{% static 'resources/img/pcbDesigning.jpg' %}" alt="iPhone Photo" class="app-screen js--wp-2">
+            </div>
+            <div class="col span-1-of-2 steps-box">
+                <div class="works-step">
+                    <div>1</div>
+                    <p>Sign Up</p>
+                </div>
+                <div class="works-step">
+                    <div>2</div>
+                    <p>Create a New Project</p>
+                </div>
+                <div class="works-step">
+                    <div>3</div>
+                    <p>Start Designing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% comment %} <section class="section-form">
+        <div class="row">
+            <h2>We're happy to hear from you</h2>
+        </div>
+        <div class="row">
+            <form method="post" action="#" class="contact-form">
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="name">Name</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="text" name="name" id="name" placeholder="Your name" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="email" name="email" id="email" placeholder="Your email" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label for="find-us">How did you find us?</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <select name="find-us" id="find-us">
+                            <option value="friends" selected>Friends</option>
+                            <option value="search">Search engine</option>
+                            <option value="advertisement">Advertisement</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label>Newsletter?</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="checkbox" name="news" id="news" checked>Yes, please.
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label>Drop us a line</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <textarea name="message" placeholder="Your message"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col span-1-of-3">
+                        <label>&nbsp;</label>
+                    </div>
+                    <div class="col span-2-of-3">
+                        <input type="submit" value="Send it!">
+                    </div>
+                </div>
+            </form>
+        </div> 
+    </section> {% endcomment %}
+    <footer>
+        <div class="row">
+            <div class="col span-1-of-2">
+                <ul class="footer-nav">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">iOS App</a></li>
+                    <li><a href="#">Android App</a></li>
+                </ul>
+            </div>
+            <div class="col span-1-of-2">
+                <ul class="social-links">
+                    <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                    <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                    <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                    <li><a href="#"><i class="ion-social-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <p>
+                Copyright &copy; 2021 by Ozar. All rights reserved.
+            </p>
+        </div>
+    </footer>
 
-    <div id="content">
-        {% block content %}{% endblock %}
-    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/respond@0.9.0/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond@0.9.0/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/respond@0.9.0/main.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static 'vendors/js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'resources/js/script.js' %}"></script>
+
 </body>
+
 </html>
