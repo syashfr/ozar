@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #### To run the application locally
 
 ## 1. Pre-requisites
@@ -18,3 +19,10 @@
  
 
 Ensure kubernetes cluster with the name ozards-d-aks is deployed, ingress controller is deployed and user namespace is created before making requests.
+=======
+## Home Page at
+
+http://127.0.0.1:8000/
+ 
+on pressing login new page is loaded further pressing sign in  loads a spinner and pressing sign up show different fields
+>>>>>>> 629c7aefeeaa47b3fc0842c75beeb0bd22f1bbf6
