@@ -5,7 +5,7 @@ class DesignspaceConfig(AppConfig):
     name = 'designspace'
 
     # Currently not deploying any workspace 
-    #def ready(self):
+    # def ready(self):
     #     """ Initialisation tasks
     #     """
     #     # IMP: AKS cluster with the name: ozards-d-aks must be deployed
