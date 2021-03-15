@@ -23,6 +23,7 @@ urlpatterns = [
     path('', auth_views.LoginView.as_view(template_name='base.html'), name = 'login'),
     path('login/designspace/', include('designspace.urls')),
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name = 'login'),
     path('password_reset/', auth_views.PasswordChangeView.as_view(template_name='password-reset.html'),name = 'password_reset'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
