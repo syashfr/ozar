@@ -22,14 +22,6 @@ class DesignDetailView(DetailView):
 class DesignSpaceHomepage(TemplateView):
     template_name = 'designspace_homepage.html'
 
-class View3D(TemplateView):
-    template_name = '3d_template.html'
-    def get(self, request):
-        p = os.path.join(settings.MEDIA_ROOT, 'designFiles', 'bigmac-holder.stl')
-        fig = plot_mesh(p)
-        context = {"graph": fig}
-        return render(request, self.template_name, context)
-
 class LaunchWorkSpace(TemplateView):
     template_name = 'launch_results.html'
 

@@ -27,10 +27,7 @@ class Design(models.Model):
     def get_3d_plot(self):
         file_path = self.file.path
         fig = plot_mesh(file_path)
-        context = {"graph": fig}
         return fig
-
-
 
     def save(self, *args, **kwargs):
         value = self.author.get_username() + "-" + self.name
