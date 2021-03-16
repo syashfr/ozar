@@ -1,11 +1,8 @@
-import plotly
-from stl import mesh
 import os
+import plotly
 import numpy as np
-from mpl_toolkits import mplot3d
-from matplotlib import pyplot
+from stl import mesh
 import plotly.graph_objects as go
-from plotly.offline import iplot
 
 def stl2mesh3d(stl_mesh):
     # stl_mesh is read by nympy-stl from a stl file; it is  an array of faces/triangles (i.e. three 3d points) 
@@ -19,7 +16,7 @@ def stl2mesh3d(stl_mesh):
     K = np.take(ixr, [3*k+2 for k in range(p)])
     return vertices, I, J, K
 
-def plot_mesh():
+def plot_mesh(p):
     design_mesh = mesh.Mesh.from_file(p)
     vertices, I, J, K = stl2mesh3d(design_mesh)
     x, y, z = vertices.T
@@ -36,7 +33,6 @@ def plot_mesh():
 
     title = "Mesh3d from a STL file"
     fig = go.Figure(data=[mesh3D])
-    plotly.offline.plot(fig)
-
-if __name__ == "__main__":
-    
+    #plotly.offline.plot(fig)
+    div = plotly.offline.plot(fig, auto_open=False, output_type='div')
+    return div
