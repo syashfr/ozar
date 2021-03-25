@@ -18,11 +18,13 @@ from django.conf import settings
 from django.urls import include, path
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+from django.views.generic.base import TemplateView
 
 
 urlpatterns = [
-    path('', include(('designspace.urls', 'designspace'), namespace = 'designspace')),
-    path('login/designspace/', include('designspace.urls')),
+    path('', TemplateView.as_view(template_name='base_old.html'), name='home'),
+    path('login/designspace/', include(('designspace.urls', 'designspace'), namespace = 'designspace')),
+	#path('login/designspace/', include('designspace.urls')),
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name = 'login'),
