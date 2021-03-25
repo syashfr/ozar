@@ -4,8 +4,7 @@
 <html lang="en">
 <head>
     <title>{% block title %}Login{% endblock %}</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'resources/css/login_modal.css' %}">
-
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login_modal.css' %}">
 </head>
 <body>
     <div class="container" id="container">
@@ -42,8 +41,8 @@
                     <button class="ghost" id="signIn">Sign In</button>
                 </div>
                 <div class="overlay-panel overlay-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Enter your personal details and start journey with us</p>
+                    <h1>Hello</h1>
+                    <p>Start your journey with us</p>
                     <button class="ghost" id="signUp">Sign Up</button>
                 </div>
             </div>
@@ -62,9 +61,6 @@
         document.getElementById("notMatch").style.visibility = "visible";
     </script>
     {% endif %}
-
-
-
     <script src="{% static 'resources/js/login-form.js' %}"></script>
 
 </body>

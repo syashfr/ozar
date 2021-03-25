@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+  <!--Main layout-->
+  <main class="mt-5 pt-4">
+    <div class="container dark-grey-text mt-5">
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+          {{ design.get_3d_plot | safe }}
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+          <!--Content-->
+          <div class="p-4">
+
+            <div class="mb-3">
+              <p class="lead">
+                <span class="lead font-weight-bold">{{ object.name }}</span>
+              <p class="lead font-weight-bold"></p>
+              
+            <p class="lead">
+              <span class="mr-1">Designed by: {{ object.author}}</span>
+              <p class="lead font-weight-bold"></p>
+
+              <p class="lead">
+                <span class="mr-1">Type: {{ object.type }}</span>
+                <p class="lead font-weight-bold">Description</p>
+
+            <p>{{ object.description }}</p>
+
+          </div>
+          <!--Content-->
+
+        </div>
+        <!--Grid column-->
+        
+
+      </div>
+      <!--Grid row-->
+
+      <hr>
+
+     
+     {%comment%} <div class="row wow fadeIn">
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-12 mb-4">
+
+          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-lg-4 col-md-6 mb-4">
+
+          <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
+
+        </div>
+        <!--Grid column-->
+
+      </div> {% endcomment %}
+      <!--Grid row-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+{% endblock content %}
