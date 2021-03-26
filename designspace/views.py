@@ -9,6 +9,8 @@ from django.views.generic import TemplateView, ListView, DetailView
 from django.template.response import TemplateResponse
 from django.template import Context, Template
 from .launch_handler import *
+from django.core.files.storage import FileSystemStorage
+from django.shortcuts import redirect
 
 # Create your views here.
 class HomeView(ListView):
@@ -42,7 +44,17 @@ class LaunchWorkSpace(TemplateView):
                     expected behavior
                         redirect to workspace: hostname/userid/kicad. No hostaname as of now"""
         return render(request, self.template_name)
-    
+
+class UploadFiles(TemplateView):
+	template_name = 'upload.html'
+	def post(self,request):
+		if request.method == 'POST' and request.FILES['myfile']:
+			myfile = request.FILES['myfile']
+			fs = FileSystemStorage()
+			filename = fs.save(myfile.name, myfile)
+			uploaded_file_url = fs.url(filename)
+			return redirect('/')
+		return redirect('/')
 
 
 
