@@ -9,6 +9,7 @@ from django.views.generic import TemplateView, ListView, DetailView
 from django.template.response import TemplateResponse
 from django.template import Context, Template
 from .launch_handler import *
+from .forms import UploadForm
 from django.core.files.storage import FileSystemStorage
 from django.shortcuts import redirect
 
@@ -46,16 +47,17 @@ class LaunchWorkSpace(TemplateView):
         return render(request, self.template_name)
 
 class UploadFiles(TemplateView):
-	template_name = 'upload.html'
-	def post(self,request):
-		if request.method == 'POST' and request.FILES['myfile']:
-			myfile = request.FILES['myfile']
-			fs = FileSystemStorage()
-			filename = fs.save(myfile.name, myfile)
-			uploaded_file_url = fs.url(filename)
-			return redirect('/')
-		return redirect('/')
+    def get(self, request):
+        form = UploadForm()
+        return render(request, 'upload.html', {
+            'form': form
+        })
 
-
-
-
+    def post(self, request):
+        form = UploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            design = form.save(commit=False)
+            design.author = self.request.user
+            design.save()
+            return redirect('home')
+            
