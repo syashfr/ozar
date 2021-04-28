@@ -15,6 +15,8 @@ class Design(models.Model):
     slug = models.SlugField(null=True)
     tags = TaggableManager()
     image = models.ImageField(blank=True)
+    forked = models.BooleanField(default='False')
+    forked_from = models.IntegerField(null=True,blank=True)
 
     def __str__(self):
         return self.name
@@ -33,3 +35,5 @@ class Design(models.Model):
         value = self.author.get_username() + "-" + self.name
         self.slug = slugify(value, allow_unicode=True)
         super().save(*args, **kwargs)
+    
+    

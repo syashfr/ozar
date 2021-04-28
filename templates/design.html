@@ -14,10 +14,8 @@
 
         <!--Grid column-->
         <div class="col-md-6 mb-4">
-
           <!--Content-->
           <div class="p-4">
-
             <div class="mb-3">
               <p class="lead">
                 <span class="lead font-weight-bold">{{ object.name }}</span>
@@ -32,7 +30,9 @@
                 <p class="lead font-weight-bold">Description</p>
 
             <p>{{ object.description }}</p>
-
+           
+            <a class="nav-link waves-effect" href="/fork/?pk={{ object.pk }}">Fork</a>
+            
           </div>
           <!--Content-->
 
@@ -44,7 +44,6 @@
       <!--Grid row-->
 
       <hr>
-
      
      {%comment%} <div class="row wow fadeIn">
 
