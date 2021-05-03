@@ -7,7 +7,7 @@ from taggit.managers import TaggableManager
 
 # Create your models here.
 class Design(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='designer')
     name = models.CharField(max_length=30)
     type = models.CharField(max_length=30)
     description = models.TextField(blank=True)
@@ -16,7 +16,7 @@ class Design(models.Model):
     tags = TaggableManager()
     image = models.ImageField(blank=True)
     forked = models.BooleanField(default='False')
-    forked_from = models.IntegerField(null=True,blank=True)
+    forked_from = models.CharField(max_length=30, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -36,4 +36,6 @@ class Design(models.Model):
         self.slug = slugify(value, allow_unicode=True)
         super().save(*args, **kwargs)
     
+class Profile(models.Model):   
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     
